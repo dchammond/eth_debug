@@ -3,3 +3,5 @@
 /eth_debug.runs/
 /eth_debug.sim/
 *.swp
+*.jou
+*.log

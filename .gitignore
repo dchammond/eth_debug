@@ -3,6 +3,8 @@
 /eth_debug.runs/
 /eth_debug.sim/
 /.Xil/
+/outputs/
 *.swp
 *.jou
 *.log
+*.bit

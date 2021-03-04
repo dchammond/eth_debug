@@ -47,7 +47,7 @@
 -- DO NOT MODIFY THIS FILE.
 
 -- IP VLNV: xilinx.com:ip:mii_to_rmii:2.0
--- IP Revision: 21
+-- IP Revision: 25
 
 -- The following code must appear in the VHDL architecture header.
 

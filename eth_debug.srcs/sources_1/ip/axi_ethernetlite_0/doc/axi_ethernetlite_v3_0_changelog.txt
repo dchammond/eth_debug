@@ -1,3 +1,13 @@
+2020.2:
+ * Version 3.0 (Rev. 21)
+ * General: Updated the IP waiver format in the XDC
+ * General: Applied keep true attribute for the phy_col port as synthesis tool optimized for Duplex mode
+ * Revision change in one or more subcores
+
+2020.1.1:
+ * Version 3.0 (Rev. 20)
+ * No changes
+
 2020.1:
  * Version 3.0 (Rev. 20)
  * General: Updated with waivers in the XDC

@@ -1,2 +1,0 @@
-axi_ethernetlite_0.vhd,vhdl,xil_defaultlib,../../../../eth_debug.srcs/sources_1/ip/axi_ethernetlite_0/sim/axi_ethernetlite_0.vhd,
-glbl.v,Verilog,xil_defaultlib,glbl.v

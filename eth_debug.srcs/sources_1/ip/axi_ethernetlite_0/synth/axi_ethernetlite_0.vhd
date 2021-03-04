@@ -47,14 +47,14 @@
 -- DO NOT MODIFY THIS FILE.
 
 -- IP VLNV: xilinx.com:ip:axi_ethernetlite:3.0
--- IP Revision: 20
+-- IP Revision: 21
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 
-LIBRARY axi_ethernetlite_v3_0_20;
-USE axi_ethernetlite_v3_0_20.axi_ethernetlite;
+LIBRARY axi_ethernetlite_v3_0_21;
+USE axi_ethernetlite_v3_0_21.axi_ethernetlite;
 
 ENTITY axi_ethernetlite_0 IS
   PORT (
@@ -163,11 +163,11 @@ ARCHITECTURE axi_ethernetlite_0_arch OF axi_ethernetlite_0 IS
     );
   END COMPONENT axi_ethernetlite;
   ATTRIBUTE X_CORE_INFO : STRING;
-  ATTRIBUTE X_CORE_INFO OF axi_ethernetlite_0_arch: ARCHITECTURE IS "axi_ethernetlite,Vivado 2020.1";
+  ATTRIBUTE X_CORE_INFO OF axi_ethernetlite_0_arch: ARCHITECTURE IS "axi_ethernetlite,Vivado 2020.2";
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
   ATTRIBUTE CHECK_LICENSE_TYPE OF axi_ethernetlite_0_arch : ARCHITECTURE IS "axi_ethernetlite_0,axi_ethernetlite,{}";
   ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF axi_ethernetlite_0_arch: ARCHITECTURE IS "axi_ethernetlite_0,axi_ethernetlite,{x_ipProduct=Vivado 2020.1,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=axi_ethernetlite,x_ipVersion=3.0,x_ipCoreRevision=20,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_FAMILY=artix7,C_SELECT_XPM=1,C_INSTANCE=axi_ethernetlite_inst,C_S_AXI_ACLK_PERIOD_PS=10000,C_S_AXI_ADDR_WIDTH=13,C_S_AXI_DATA_WIDTH=32,C_S_AXI_ID_WIDTH=1,C_S_AXI_PROTOCOL=AXI4LITE,C_INCLUDE_MDIO=0,C_INCLUDE_INTERNAL_LOOPBACK=0,C_INCLUDE_GLOBAL_BUFFERS=1,C_DUPLEX=1,C_TX_PING_PONG=1,C_RX_PING_P" & 
+  ATTRIBUTE CORE_GENERATION_INFO OF axi_ethernetlite_0_arch: ARCHITECTURE IS "axi_ethernetlite_0,axi_ethernetlite,{x_ipProduct=Vivado 2020.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=axi_ethernetlite,x_ipVersion=3.0,x_ipCoreRevision=21,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_FAMILY=artix7,C_SELECT_XPM=1,C_INSTANCE=axi_ethernetlite_inst,C_S_AXI_ACLK_PERIOD_PS=10000,C_S_AXI_ADDR_WIDTH=13,C_S_AXI_DATA_WIDTH=32,C_S_AXI_ID_WIDTH=1,C_S_AXI_PROTOCOL=AXI4LITE,C_INCLUDE_MDIO=0,C_INCLUDE_INTERNAL_LOOPBACK=0,C_INCLUDE_GLOBAL_BUFFERS=1,C_DUPLEX=1,C_TX_PING_PONG=1,C_RX_PING_P" & 
 "ONG=1}";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;

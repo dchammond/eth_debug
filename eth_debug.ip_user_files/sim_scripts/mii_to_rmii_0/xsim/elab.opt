@@ -1,1 +1,0 @@
---relax --debug typical --mt auto -L mii_to_rmii_v2_0_21 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot mii_to_rmii_0 xil_defaultlib.mii_to_rmii_0 xil_defaultlib.glbl -log elaborate.log

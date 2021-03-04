@@ -2,6 +2,7 @@
 /eth_debug.hbs/
 /eth_debug.runs/
 /eth_debug.sim/
+/.Xil/
 *.swp
 *.jou
 *.log

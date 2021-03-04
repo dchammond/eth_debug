@@ -7,10 +7,6 @@
 #Bank = 35, Pin name = IO_L12P_T1_MRCC_35,					Sch name = CLK100MHZ
 set_property -dict {PACKAGE_PIN E3 IOSTANDARD LVCMOS33} [get_ports clk_i];
 create_clock -period 10.000 -name sys_clk_pin -add [get_ports clk_i];
-#create_clock -period 20.000 -name Rmii2Mac_tx_clk -waveform {0 6} [get_ports rmii2mac_tx_clk]
-#create_clock -period 20.000 -name Rmii2Mac_rx_clk -waveform {0 6} [get_ports rmii2mac_rx_clk]
-
-
 
 set_property CONFIG_VOLTAGE 3.3 [current_design];
 set_property CFGBVS VCCO [current_design];
@@ -49,6 +45,7 @@ set_property PACKAGE_PIN A8 [get_ports {PhyTxd[1]}]
 #Bank = 35, Pin name = IO_L11P_T1_SRCC_35,					Sch name = ETH_REFCLK
 set_property PACKAGE_PIN D5 [get_ports PhyClk50Mhz]				
 	set_property IOSTANDARD LVCMOS33 [get_ports PhyClk50Mhz]
+    create_clock -period 20.000 -name phy_clk_pin -add [get_ports PhyClk50Mhz]
 ##Bank = 16, Pin name = IO_L12P_T1_MRCC_16,					Sch name = ETH_INTN
 #set_property PACKAGE_PIN B8 [get_ports PhyIntn]					
 #	set_property IOSTANDARD LVCMOS33 [get_ports PhyIntn]

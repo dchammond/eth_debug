@@ -34,7 +34,7 @@ module top(
     input        UartRxdDebug,
     output       UartTxdDebug,
     input        UartRxdEth,
-    output       UartTxdEth,
+    output       UartTxdEth
 );
 
 logic rst = sw[0];
@@ -114,7 +114,7 @@ eth_queue
     .vld_o  (uart_eth_vld_q),
     .rdy_o  (),
     .data_o (uart_chunk_q)
-)
+);
 
 logic [ 7:0] uart_byte_q;
 logic        uart_byte_vld_q;

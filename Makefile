@@ -9,6 +9,7 @@ build: vivado clean
 .PHONY: clean
 clean:
 	rm -f *.jou *.log *webtalk*
+	rm -rf .Xil
 
 .PHONY: full-clean
 full-clean: clean

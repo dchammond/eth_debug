@@ -22,15 +22,3 @@ read_ip "eth_debug.srcs/sources_1/ip/axi_ethernetlite_0/axi_ethernetlite_0.xci"
 report_ip_status
 
 generate_target all [get_ips]
-
-synth_ip [get_ips]
-
-synth_design -top top
-
-opt_design
-
-place_design
-
-route_design
-
-write_bitstream -force eth_debug.bit

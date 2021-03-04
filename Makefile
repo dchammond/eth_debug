@@ -1,6 +1,6 @@
 .PHONY: vivado
 vivado:
-	vivado -mode tcl -source eth_debug.tcl
+	vivado -mode tcl -source eth_debug-bit.tcl
 
 .PHONY: build
 build: vivado clean

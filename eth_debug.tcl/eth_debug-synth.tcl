@@ -1,9 +1,19 @@
-source eth_debug.tcl/eth_debug-proj.tcl
+set code 1
 
-synth_ip [get_ips]
+if { [file exists "outputs/eth_debug_post_synth.dcp"] == 1 } {
+    set code [catch {
+        open_checkpoint "outputs/eth_debug_post_synth.dcp"
+    } ]
+}
 
-synth_design -top top
+if {$code != 0} {
+    source eth_debug.tcl/eth_debug-proj.tcl
 
-report_timing_summary -file "outputs/eth_debug_post_synth_time.rpt"
-report_utilization -file "outputs/eth_debug_post_synth_util.rpt"
-write_checkpoint -file "outputs/eth_debug_post_synth.dcp"
+    synth_ip [get_ips]
+
+    synth_design -top top
+
+    report_timing_summary -file "outputs/eth_debug_post_synth_time.rpt"
+    report_utilization -file "outputs/eth_debug_post_synth_util.rpt"
+    write_checkpoint -file "outputs/eth_debug_post_synth.dcp"
+}

@@ -2,10 +2,15 @@
 vivado: full-clean
 	mkdir -p outputs
 	vivado -mode tcl -source eth_debug.tcl/eth_debug-bit.tcl
-	mv vivado.log outputs/vivado.log || true
+	mv vivado.log outputs/vivado.log
 
 .PHONY: build
-build: vivado clean
+build: vivado clean-dep
+
+.PHONY: clean-dep
+clean-dep: vivado
+	rm -f *.jou *.log *webtalk*
+	rm -rf .Xil
 
 .PHONY: clean
 clean:

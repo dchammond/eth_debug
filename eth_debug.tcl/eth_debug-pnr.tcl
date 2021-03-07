@@ -14,6 +14,7 @@ write_checkpoint -file "outputs/eth_debug_post_physopt.dcp"
 
 route_design
 
+report_bus_skew -file "outputs/eth_debug_post_route_skew.rpt"
 report_timing_summary -file "outputs/eth_debug_post_route_time.rpt"
 report_utilization -hierarchical -file "outputs/eth_debug_post_route_util.rpt"
 report_route_status -file "outputs/eth_debug_post_route_status.rpt"

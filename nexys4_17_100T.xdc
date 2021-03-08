@@ -57,6 +57,14 @@ set_property IOB TRUE [get_ports PhyRxd[1]]
 set_property IOB TRUE [get_ports PhyTxEn]
 set_property IOB TRUE [get_ports PhyTxd[0]]
 set_property IOB TRUE [get_ports PhyTxd[1]]
+
+set_false_path -from [get_ports PhyCrs]
+set_false_path -from [get_ports PhyRxErr]
+set_false_path -from [get_ports PhyRxd[0]]
+set_false_path -from [get_ports PhyRxd[1]]
+set_false_path -to   [get_ports PhyTxEn]
+set_false_path -to   [get_ports PhyTxd[0]]
+set_false_path -to   [get_ports PhyTxd[1]]
  
 ## Switches
 #Bank = 34, Pin name = IO_L21P_T3_DQS_34,					Sch name = SW0
@@ -108,7 +116,8 @@ set_property PACKAGE_PIN U8 [get_ports {sw[1]}]
 #set_property PACKAGE_PIN P4 [get_ports {sw[15]}]					
 	#set_property IOSTANDARD LVCMOS33 [get_ports {sw[15]}]
  
-
+set_false_path -from [get_ports {sw[0]}]
+set_false_path -from [get_ports {sw[1]}]
 
 ## LEDs
 #Bank = 34, Pin name = IO_L24N_T3_34,						Sch name = LED0
@@ -179,7 +188,10 @@ set_property PACKAGE_PIN T6 [get_ports {led[3]}];
 #set_property PACKAGE_PIN L16 [get_ports RGB2_Blue]					
 	#set_property IOSTANDARD LVCMOS33 [get_ports RGB2_Blue]
 
-
+set_false_path -to   [get_ports {led[0]}]
+set_false_path -to   [get_ports {led[1]}]
+set_false_path -to   [get_ports {led[2]}]
+set_false_path -to   [get_ports {led[3]}]
 
 ##7 segment display
 ##Bank = 34, Pin name = IO_L2N_T0_34,						Sch name = CA
@@ -341,6 +353,9 @@ set_property PACKAGE_PIN J3 [get_ports UartTxdEth]
 
 set_property IOB TRUE [get_ports UartRxdEth]
 set_property IOB TRUE [get_ports UartTxdEth]
+
+set_false_path -from [get_ports UartRxdEth]
+set_false_path -to   [get_ports UartTxdEth]
  
 #Pmod Header JD
 #Bank = 35, Pin name = IO_L21N_T2_DQS_35,					Sch name = JD1
@@ -370,6 +385,9 @@ set_property PACKAGE_PIN G1 [get_ports UartTxdDebug]
  
 set_property IOB TRUE [get_ports UartRxdDebug]
 set_property IOB TRUE [get_ports UartTxdDebug]
+
+set_false_path -from [get_ports UartRxdDebug]
+set_false_path -to   [get_ports UartTxdDebug]
 
 ##Pmod Header JXADC
 ##Bank = 15, Pin name = IO_L9P_T1_DQS_AD3P_15,				Sch name = XADC1_P -> XA1_P

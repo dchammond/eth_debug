@@ -94,30 +94,25 @@ mii_to_rmii_0 mii_to_rmii(
 
 logic [31:0] eth_frame_q;
 logic        eth_frame_vld_q;
-logic [31:0] uart_chunk_q;
-logic [ 7:0] uart_eth_q;
-logic        uart_eth_vld_q;
-logic        done_tx_q;
 
-queue
+eth_over_uart
 #(
-    .WIDTH (32),
-    .DEPTH ($rtoi($ceil(1522/32)))
+    .CLK_FREQ_HZ (100000000),
+    .BAUD_RATE   (460800)
 )
-eth_queue
+uart_eth
 (
-    .clk    (clk_i),
-    .rst    (rst),
-    .vld_i  (eth_frame_vld_q),
-    .rdy_i  (), // Assume always rdy
-    .data_i (eth_frame_q),
-    .vld_o  (uart_eth_vld_q),
-    .rdy_o  (),
-    .data_o (uart_chunk_q)
+    .clk_i            (clk_i),
+    .rst_i            (rst),
+    .eth_chunk_i      (eth_frame_q),
+    .eth_chunk_vld_i  (eth_frame_vld_q),
+    .uart_rxd_i       (UartRxdEth),
+    .uart_txd_o       (UartTxdEth)
 );
 
 logic [ 7:0] uart_byte_q;
 logic        uart_byte_vld_q;
+logic        done_tx_q;
 
 uart
 #(

@@ -1,19 +1,23 @@
 .PHONY: program
 program:
-	vivado -mode tcl -nolog -nojournal -source eth_debug.tcl/eth_debug-prog.tcl -tclargs "${BITFILE}"
+	vivado -mode tcl -nolog -nojournal -source tcl/eth_debug-prog.tcl -tclargs "${BITFILE}"
 
 .PHONY: vivado-bit
 vivado-bit: vivado-prep
-	vivado -mode tcl -source eth_debug.tcl/eth_debug-bit.tcl
+	vivado -mode tcl -source tcl/eth_debug-bit.tcl
 
 vivado-opt: vivado-prep
-	vivado -mode tcl -source eth_debug.tcl/eth_debug-opt.tcl
+	vivado -mode tcl -source tcl/eth_debug-opt.tcl
 
 vivado-pnr: vivado-prep
-	vivado -mode tcl -source eth_debug.tcl/eth_debug-pnr.tcl
+	vivado -mode tcl -source tcl/eth_debug-pnr.tcl
 
 vivado-synth: vivado-prep 
-	vivado -mode tcl -source eth_debug.tcl/eth_debug-synth.tcl
+	vivado -mode tcl -source tcl/eth_debug-synth.tcl
+
+.PHONY: vivado-elab
+vivado-elab: vivado-prep 
+	vivado -mode tcl -source tcl/eth_debug-elab.tcl
 
 .PHONY: vivado-prep
 vivado-prep:

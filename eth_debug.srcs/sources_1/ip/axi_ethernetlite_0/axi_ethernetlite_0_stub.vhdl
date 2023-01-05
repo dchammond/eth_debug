@@ -1,7 +1,7 @@
--- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+-- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
--- Date        : Wed Mar  3 17:17:14 2021
+-- Tool Version: Vivado v.2021.2 (lin64) Build 3367213 Tue Oct 19 02:47:39 MDT 2021
+-- Date        : Fri Mar 25 21:04:03 2022
 -- Host        : dillon-arch running 64-bit unknown
 -- Command     : write_vhdl -force -mode synth_stub
 --               /home/dillon/git/eth_debug/eth_debug.srcs/sources_1/ip/axi_ethernetlite_0/axi_ethernetlite_0_stub.vhdl
@@ -54,6 +54,6 @@ attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;
 attribute black_box_pad_pin of stub : architecture is "s_axi_aclk,s_axi_aresetn,ip2intc_irpt,s_axi_awaddr[12:0],s_axi_awvalid,s_axi_awready,s_axi_wdata[31:0],s_axi_wstrb[3:0],s_axi_wvalid,s_axi_wready,s_axi_bresp[1:0],s_axi_bvalid,s_axi_bready,s_axi_araddr[12:0],s_axi_arvalid,s_axi_arready,s_axi_rdata[31:0],s_axi_rresp[1:0],s_axi_rvalid,s_axi_rready,phy_tx_clk,phy_rx_clk,phy_crs,phy_dv,phy_rx_data[3:0],phy_col,phy_rx_er,phy_rst_n,phy_tx_en,phy_tx_data[3:0]";
 attribute x_core_info : string;
-attribute x_core_info of stub : architecture is "axi_ethernetlite,Vivado 2020.2";
+attribute x_core_info of stub : architecture is "axi_ethernetlite,Vivado 2021.2";
 begin
 end;

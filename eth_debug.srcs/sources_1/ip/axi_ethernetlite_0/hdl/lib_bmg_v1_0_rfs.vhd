@@ -63,8 +63,8 @@ USE ieee.std_logic_1164.ALL;
 Library xpm;
 use xpm.vcomponents.all;
 
-library blk_mem_gen_v8_4_4;
-use blk_mem_gen_v8_4_4.all;
+library blk_mem_gen_v8_4_5;
+use blk_mem_gen_v8_4_5.all;
 
 
 ------------------------------------------------------------------------------
@@ -381,7 +381,7 @@ begin
     -- for new IP BRAM implementations.
     --
     -------------------------------------------------------------------------------
-    I_TRUE_DUAL_PORT_BLK_MEM_GEN : entity blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4
+    I_TRUE_DUAL_PORT_BLK_MEM_GEN : entity blk_mem_gen_v8_4_5.blk_mem_gen_v8_4_5
       generic map
         (
         --C_CORENAME                => c_corename              ,                                       

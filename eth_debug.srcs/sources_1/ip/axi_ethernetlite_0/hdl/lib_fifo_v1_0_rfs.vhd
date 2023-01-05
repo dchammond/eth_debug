@@ -184,11 +184,11 @@ USE IEEE.STD_LOGIC_UNSIGNED.ALL;
 USE IEEE.std_logic_arith.ALL;
 
 
-library fifo_generator_v13_2_5;
-use fifo_generator_v13_2_5.all;
---library lib_fifo_v1_0_14;
---use lib_fifo_v1_0_14.lib_fifo_pkg.all;
---use lib_fifo_v1_0_14.family_support.all;
+library fifo_generator_v13_2_6;
+use fifo_generator_v13_2_6.all;
+--library lib_fifo_v1_0_15;
+--use lib_fifo_v1_0_15.lib_fifo_pkg.all;
+--use lib_fifo_v1_0_15.family_support.all;
 
 
 -- synopsys translate_off
@@ -801,7 +801,7 @@ end generate full_gen1;
          -- legacy BRAM implementations of an Async FIFo.
          --
          -------------------------------------------------------------------------------
-         I_ASYNC_FIFO_BRAM : entity fifo_generator_v13_2_5.fifo_generator_v13_2_5
+         I_ASYNC_FIFO_BRAM : entity fifo_generator_v13_2_6.fifo_generator_v13_2_6
             generic map(
               C_COMMON_CLOCK                 =>  0,   
               C_COUNT_TYPE                   =>  0,   
@@ -1408,7 +1408,7 @@ end generate full_gen1;
          -- legacy BRAM implementations of an Async FIFo.
          --
          -------------------------------------------------------------------------------
-         I_ASYNC_FIFO_BRAM : entity fifo_generator_v13_2_5.fifo_generator_v13_2_5
+         I_ASYNC_FIFO_BRAM : entity fifo_generator_v13_2_6.fifo_generator_v13_2_6
             generic map(
               C_COMMON_CLOCK                 =>  0,                                              
               C_COUNT_TYPE                   =>  0,                                              
@@ -2186,15 +2186,15 @@ end implementation;
 --     - Changed FULL_FLAGS_RST_VAL to '1'
 -- ^^^^^^
 --   KARTHEEK 03/02/2016
---     - Update to use fifo_generator_v13_2_5
+--     - Update to use fifo_generator_v13_2_6
 -------------------------------------------------------------------------------
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
 
-library fifo_generator_v13_2_5;
-use fifo_generator_v13_2_5.all;
+library fifo_generator_v13_2_6;
+use fifo_generator_v13_2_6.all;
 
 Library xpm;
 use xpm.vcomponents.all;
@@ -2821,7 +2821,7 @@ begin
     -- BRAM implementations of a legacy Sync FIFO
     --
     -------------------------------------------------------------------------------
-    I_SYNC_FIFO_BRAM : entity fifo_generator_v13_2_5.fifo_generator_v13_2_5 
+    I_SYNC_FIFO_BRAM : entity fifo_generator_v13_2_6.fifo_generator_v13_2_6 
       generic map(
         C_COMMON_CLOCK                 =>  1,                                           
         C_COUNT_TYPE                   =>  0,                                           

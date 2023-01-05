@@ -1,3 +1,29 @@
+2021.2:
+ * Version 3.0 (Rev. 24)
+ * Revision change in one or more subcores
+
+2021.1.1:
+ * Version 3.0 (Rev. 23)
+ * No changes
+
+2021.1:
+ * Version 3.0 (Rev. 23)
+ * Bug Fix: Fixed the TVALID and TLAST generation issue in AXI-Full configuration for the IP
+ * Revision change in one or more subcores
+
+2020.3:
+ * Version 3.0 (Rev. 22)
+ * General: Added Versal Premium device support
+ * Revision change in one or more subcores
+
+2020.2.2:
+ * Version 3.0 (Rev. 21)
+ * No changes
+
+2020.2.1:
+ * Version 3.0 (Rev. 21)
+ * No changes
+
 2020.2:
  * Version 3.0 (Rev. 21)
  * General: Updated the IP waiver format in the XDC
@@ -186,7 +212,7 @@
  * Version 2.0
  * Updated core version for 2013.1 Vivado release. No other functional or interface updates in this release.
 
-(c) Copyright 2012 - 2020 Xilinx, Inc. All rights reserved.
+(c) Copyright 2012 - 2021 Xilinx, Inc. All rights reserved.
 
 This file contains confidential and proprietary information
 of Xilinx, Inc. and is protected under U.S. and

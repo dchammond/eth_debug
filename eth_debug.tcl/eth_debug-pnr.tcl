@@ -9,19 +9,22 @@ if { [file exists "outputs/eth_debug_post_route.dcp"] == 1 } {
 if {$code != 0} {
     source eth_debug.tcl/eth_debug-opt.tcl
 
-    place_design
+    place_design -directive Explore
 
     report_timing_summary -file "outputs/eth_debug_post_place_time.rpt"
     report_utilization -file "outputs/eth_debug_post_place_util.rpt"
     write_checkpoint -file "outputs/eth_debug_post_place.dcp"
 
-    phys_opt_design
+    phys_opt_design -directive AggressiveExplore
 
     report_timing_summary -file "outputs/eth_debug_post_physopt_time.rpt"
     report_utilization -file "outputs/eth_debug_post_physopt_util.rpt"
     write_checkpoint -file "outputs/eth_debug_post_physopt.dcp"
 
-    route_design
+    set WNS [get_property SLACK [get_timing_paths -max_paths 1 -nworst 1 -setup]]
+    puts "Post Physopt WNS = $WNS"
+
+    route_design -directive AggressiveExplore -tns_cleanup
 
     report_bus_skew -file "outputs/eth_debug_post_route_skew.rpt"
     report_timing_summary -file "outputs/eth_debug_post_route_time.rpt"
@@ -36,4 +39,13 @@ if {$code != 0} {
 
     set WNS [get_property SLACK [get_timing_paths -max_paths 1 -nworst 1 -setup]]
     puts "Post Route WNS = $WNS"
+
+    phys_opt_design -directive AggressiveExplore
+
+    report_timing_summary -file "outputs/eth_debug_post_route_physopt_time.rpt"
+    report_utilization -file "outputs/eth_debug_post_route_physopt_util.rpt"
+    write_checkpoint -file "outputs/eth_debug_post_route_physopt.dcp"
+
+    set WNS [get_property SLACK [get_timing_paths -max_paths 1 -nworst 1 -setup]]
+    puts "Post Route and Physopt WNS = $WNS"
 }

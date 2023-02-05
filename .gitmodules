@@ -1,0 +1,3 @@
+[submodule "sim/cocotb"]
+	path = sim/cocotb
+	url = git@github.com:cocotb/cocotb.git

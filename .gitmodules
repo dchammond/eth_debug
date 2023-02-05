@@ -1,6 +1,0 @@
-[submodule "sim/cocotb"]
-	path = sim/cocotb
-	url = git@github.com:cocotb/cocotb.git
-[submodule "sim/cocotb-bus"]
-	path = sim/cocotb-bus
-	url = git@github.com:cocotb/cocotb-bus.git

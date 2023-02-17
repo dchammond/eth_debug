@@ -7,7 +7,10 @@ if { [file exists "outputs/eth_debug_post_opt.dcp"] == 1 } {
 }
 
 if {$code != 0} {
-    source eth_debug.tcl/eth_debug-synth.tcl
+    source tcl/eth_debug-synth.tcl
+
+    source tcl/pathcutter.sdc
+    source tcl/synchronizer.sdc
 
     opt_design
 

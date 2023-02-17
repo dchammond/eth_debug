@@ -3,8 +3,8 @@
 create_project -in_memory "eth_debug"
 
 set_part "xc7a100tcsg324-1"
-set_param board.repoPaths "board"
-set_property BOARD_PART "digilentinc.com:nexys4:1.1" [get_projects]
+#set_param board.repoPaths "board"
+#set_property BOARD_PART "digilentinc.com:nexys4:1.1" [get_projects]
 read_xdc "nexys4_17_100T.xdc"
 
 proc find_files { basedir pattern } {
@@ -27,15 +27,20 @@ proc find_files { basedir pattern } {
     return ${filelist}
 }
 
-set sv_user [find_files "rtl" "*.sv"]
+set sv_user [find_files "rtl" "top.sv"]
 foreach sv $sv_user {
     read_verilog -sv "$sv"
 }
 
-set vhdl_user [find_files "rtl" "*.vhd"]
-foreach vhdl $vhdl_user {
-    read_vhdl -vhdl2008 "$vhdl"
+set sv_user [find_files "rtl" "uart_*.sv"]
+foreach sv $sv_user {
+    read_verilog -sv "$sv"
 }
+
+#set vhdl_user [find_files "rtl" "*.vhd"]
+#foreach vhdl $vhdl_user {
+#    read_vhdl -vhdl2008 "$vhdl"
+#}
 
 #set_property IP_REPO_PATHS "mii_to_rmii_v2_0" [get_projects]
 #

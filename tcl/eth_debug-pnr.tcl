@@ -7,7 +7,7 @@ if { [file exists "outputs/eth_debug_post_route.dcp"] == 1 } {
 }
 
 if {$code != 0} {
-    source eth_debug.tcl/eth_debug-opt.tcl
+    source tcl/eth_debug-opt.tcl
 
     place_design -directive Explore
 

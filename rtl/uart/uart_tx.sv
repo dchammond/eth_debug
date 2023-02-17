@@ -67,8 +67,8 @@ always_comb begin
             tick_counter_d = tick_counter_q + 1'b1;
             if(tick_counter_q == (TICKS_PER_BIT - 1)) begin
                 tick_counter_d = '0;
-                bit_mask_d     = {1'b0, bit_mask_q[0+:7]};
-                byte_to_send_d = {1'bx, byte_to_send_q[0+:7]};
+                bit_mask_d     = {1'b0, bit_mask_q[1+:7]};
+                byte_to_send_d = {1'bx, byte_to_send_q[1+:7]};
                 state_d        = (bit_mask_q == 8'd1) ? STOP : DATA;
             end
         end

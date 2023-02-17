@@ -3,8 +3,13 @@ TOPLEVEL_LANG = verilog
 
 VERILOG_SOURCES += $(PWD)/sim_top.sv
 #VERILOG_SOURCES += ../rtl/top.sv
-#VERILOG_SOURCES += ../rtl/uart/uart_tx.sv
-#VERILOG_SOURCES += ../rtl/uart/uart_rx.sv
+VERILOG_SOURCES += ../rtl/uart/uart_tx.sv
+VERILOG_SOURCES += ../rtl/uart/uart_rx.sv
+
+VERILOG_SOURCES += $(XILINX_VIVADO)/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv
+VERILOG_SOURCES += $(XILINX_VIVADO)/data/ip/xpm/xpm_fifo/simulation/xpm_fifo_tb.sv
+VERILOG_SOURCES += $(XILINX_VIVADO)/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv
+VERILOG_SOURCES += $(XILINX_VIVADO)/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv
 
 TOPLEVEL = sim_top
 

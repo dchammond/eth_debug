@@ -67,18 +67,18 @@ always_comb begin
     end
     DATA: begin
         tick_counter_d = tick_counter_q + 1'b1;
-        if(tick_counter_q == TICKS_PER_BIT - 1) begin
-            byte_rx_d  = {uart_rxd_q, byte_rx_q[1+:7]};
-            bit_mask_d = {1'b1, bit_mask_q[1+:7]};
+        if(tick_counter_q == (TICKS_PER_BIT - 1)) begin
+            tick_counter_d = '0;
+            byte_rx_d      = {uart_rxd_q, byte_rx_q[1+:7]};
+            bit_mask_d     = {1'b1, bit_mask_q[1+:7]};
             if(bit_mask_q[1+:7] == '1) begin
-                tick_counter_d = '0;
-                state_d        = STOP;
+                state_d = STOP;
             end
         end
     end
     STOP: begin
         tick_counter_d = tick_counter_q + 1'b1;
-        if(tick_counter_q == TICKS_PER_BIT - 1) begin
+        if(tick_counter_q == (TICKS_PER_BIT - 1)) begin
             state_d = IDLE;
         end
     end
@@ -112,8 +112,8 @@ xpm_fifo_sync #(
     .RD_DATA_COUNT_WIDTH ($clog2(FIFO_DEPTH)+1),
     .READ_DATA_WIDTH     ($bits(byte_out_data)),
     .READ_MODE           ("std"),
-    .SIM_ASSERT_CHK      (1),
-    .USE_ADV_FEATURES    ("0201"), // 12'b1000000001
+    .SIM_ASSERT_CHK      (0),
+    .USE_ADV_FEATURES    ("1010"), // 12'b1000000010000
     .WAKEUP_TIME         (0),
     .WR_DATA_COUNT_WIDTH ($clog2(FIFO_DEPTH)+1),
     .WRITE_DATA_WIDTH    ($bits(byte_out_data))
@@ -141,7 +141,7 @@ xpm_fifo_sync #(
     .wr_ack              (fifo_wr_ack),
     .wr_clk              (clk),
     .wr_data_count       (),
-    .wr_en               (bit_mask_q == '1),
+    .wr_en               (bit_mask_q == '1 && !fifo_wr_ack),
     .wr_rst_busy         ()
 );
 

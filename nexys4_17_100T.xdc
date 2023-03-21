@@ -13,7 +13,6 @@ set_property CONFIG_VOLTAGE 3.3 [current_design]
 set_property PACKAGE_PIN E3 [get_ports CLK100MHZ]
 set_property IOSTANDARD LVCMOS33 [get_ports CLK100MHZ]
 create_clock -name usr_clk -period 10.000 -waveform {0 5} [get_ports CLK100MHZ]
-set_clock_groups -asynchronous -group [get_clocks usr_clk]
 
 ## Switches
 ##Bank = 34, Pin name = IO_L21P_T3_DQS_34,                    Sch name = SW0

@@ -18,11 +18,12 @@ module uart_rx
 
 localparam int TICKS_PER_BIT = $floor(CLK_FREQ_HZ / BAUD_RATE);
 
-typedef enum bit [2-1:0] {
+typedef enum bit [3-1:0] {
     IDLE,
     START,
     DATA,
-    STOP
+    STOP,
+    IFG
 } state_t;
 
 logic fifo_wr_ack;
@@ -79,7 +80,15 @@ always_comb begin
     STOP: begin
         tick_counter_d = tick_counter_q + 1'b1;
         if(tick_counter_q == (TICKS_PER_BIT - 1)) begin
-            state_d = IDLE;
+            tick_counter_d = '0;
+            state_d        = IFG;
+        end
+    end
+    IFG: begin
+        tick_counter_d = tick_counter_q + 1'b1;
+        if(tick_counter_q == (TICKS_PER_BIT - 1)) begin
+            tick_counter_d = '0;
+            state_d        = IDLE;
         end
     end
     endcase

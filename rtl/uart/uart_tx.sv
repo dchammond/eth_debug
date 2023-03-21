@@ -18,11 +18,12 @@ module uart_tx
 
 localparam int TICKS_PER_BIT = $floor(CLK_FREQ_HZ / BAUD_RATE);
 
-typedef enum bit [2-1:0] {
+typedef enum bit [4-1:0] {
     IDLE,
     START,
     DATA,
-    STOP
+    STOP,
+    IFG
 } state_t;
 
 state_t state_d, state_q = IDLE;
@@ -74,6 +75,13 @@ always_comb begin
         end
         STOP: begin
             bit_out_d      = 1'b1;
+            tick_counter_d = tick_counter_q + 1'b1;
+            if(tick_counter_q == (TICKS_PER_BIT - 1)) begin
+                tick_counter_d = '0;
+                state_d        = IFG;
+            end
+        end
+        IFG: begin
             tick_counter_d = tick_counter_q + 1'b1;
             if(tick_counter_q == (TICKS_PER_BIT - 1)) begin
                 tick_counter_d = '0;

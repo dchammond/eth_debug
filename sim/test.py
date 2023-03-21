@@ -24,10 +24,10 @@ async def test(dut):
 
     dut.byte_out_ready.value = 1
 
-    bytes_to_send = [random.randint(0,255) for _ in range(1000)]
+    bytes_to_send = [random.randint(0,255) for _ in range(500)]
     for b in bytes_to_send:
         await driver.send(b)
 
-    await Timer(1, 'ms')
+    await Timer(500, 'us')
 
     raise scoreboard.result

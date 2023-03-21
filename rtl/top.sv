@@ -30,6 +30,8 @@ assign board_rst = rst_delay[0];
 
 logic uart_rxd_in;
 logic uart_rts_in;
+(* ASYNC_REG = "true" *) logic [3-1:0] uart_rxd_in_ff;
+(* ASYNC_REG = "true" *) logic [3-1:0] uart_rts_in_ff;
 
 IBUF #(
     .IBUF_LOW_PWR ("FALSE")
@@ -44,6 +46,11 @@ IBUF #(
     .I (UART_RTS_IN),
     .O (uart_rts_in)
 );
+
+always_ff @(posedge clk_100) begin
+    uart_rxd_in_ff <= {uart_rxd_in_ff[1], uart_rxd_in_ff[0], uart_rxd_in};
+    uart_rts_in_ff <= {uart_rts_in_ff[1], uart_rts_in_ff[0], uart_rts_in};
+end
 
 logic uart_txd_out;
 logic uart_cts_out;
@@ -89,7 +96,7 @@ uart_rx #(
     .clk            (clk_100),
     .rst            (board_rst),
 
-    .bit_in         (uart_rxd_in),
+    .bit_in         (uart_rxd_in_ff[2]),
 
     .byte_out_data  (uart_loop_data),
     .byte_out_valid (uart_loop_valid),

@@ -53,4 +53,24 @@ foreach sv $sv_user {
 #
 #generate_target all [get_ips]
 
+create_ip -vendor xilinx.com -library ip -version 6.2 -name ila -module_name ila_uart_rx
+
+set_property -dict [list                          \
+    CONFIG.C_DATA_DEPTH        {8192}             \
+    CONFIG.C_INPUT_PIPE_STAGES {4}                \
+    CONFIG.C_NUM_OF_PROBES     {4}                \
+    CONFIG.C_PROBE0_TYPE       {DATA and TRIGGER} \
+    CONFIG.C_PROBE1_TYPE       {DATA and TRIGGER} \
+    CONFIG.C_PROBE2_TYPE       {DATA}             \
+    CONFIG.C_PROBE3_TYPE       {DATA}             \
+    CONFIG.C_PROBE0_WIDTH      {1}                \
+    CONFIG.C_PROBE1_WIDTH      {1}                \
+    CONFIG.C_PROBE2_WIDTH      {8}                \
+    CONFIG.C_PROBE3_WIDTH      {1}                \
+] [get_ips ila_uart_rx]
+
+validate_ip [get_ips ila_uart_rx]
+set_property generate_synth_checkpoint false [get_files [get_property IP_FILE [get_ips ila_uart_rx]]]
+generate_target all [get_ips ila_uart_rx]
+
 update_compile_order

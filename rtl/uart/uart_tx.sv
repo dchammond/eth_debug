@@ -33,13 +33,13 @@ logic [$clog2(TICKS_PER_BIT):0] tick_counter_d, tick_counter_q = '0;
 logic [8-1:0] byte_to_send_d, byte_to_send_q;
 logic [8-1:0] bit_mask_d, bit_mask_q;
 
-logic bit_out_d, bit_out_q = '0;
+logic bit_out_d, bit_out_q = '1;
 
 assign bit_out = bit_out_q;
 
 always_comb begin
     byte_in_ready  = '0;
-    bit_out_d      = '0;
+    bit_out_d      = '1;
     byte_to_send_d = byte_to_send_q;
     bit_mask_d     = bit_mask_q;
     tick_counter_d = tick_counter_q;
@@ -56,7 +56,7 @@ always_comb begin
             end
         end
         START: begin
-            bit_out_d      = 1'b1;
+            bit_out_d      = 1'b0;
             tick_counter_d = tick_counter_q + 1'b1;
             if(tick_counter_q == (TICKS_PER_BIT - 1)) begin
                 tick_counter_d = '0;
@@ -74,7 +74,6 @@ always_comb begin
             end
         end
         STOP: begin
-            bit_out_d      = 1'b1;
             tick_counter_d = tick_counter_q + 1'b1;
             if(tick_counter_q == (TICKS_PER_BIT - 1)) begin
                 tick_counter_d = '0;

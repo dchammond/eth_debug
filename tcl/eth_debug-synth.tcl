@@ -9,7 +9,7 @@ if { [file exists "outputs/eth_debug_post_synth.dcp"] == 1 } {
 if { ${code} != 0 } {
     source tcl/eth_debug-proj.tcl
 
-    synth_ip [get_ips]
+    ; #synth_ip [get_ips]
 
     synth_design -name "eth_debug" -top top -retiming
 

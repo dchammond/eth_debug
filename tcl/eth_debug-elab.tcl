@@ -1,6 +1,6 @@
 source tcl/eth_debug-proj.tcl
 
-synth_ip [get_ips]
+; #synth_ip [get_ips]
 
 start_gui
 

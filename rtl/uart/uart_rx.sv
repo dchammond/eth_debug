@@ -22,7 +22,7 @@ typedef enum int {
     IDLE,
     START,
     DATA,
-    STOP,
+    STOP
 } state_t;
 
 logic fifo_wr_ack;

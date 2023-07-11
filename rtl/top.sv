@@ -103,13 +103,13 @@ uart_rx #(
     .byte_out_ready (uart_loop_ready)
 );
 
-ila_uart_rx i_ila (
-    .clk    (clk_100),
-
-    .probe0 (uart_loop_ready),
-    .probe1 (uart_loop_valid),
-    .probe2 (uart_loop_data),
-    .probe3 (uart_txd_out)
-);
+//ila_uart_rx i_ila (
+//    .clk    (clk_100),
+//
+//    .probe0 (uart_loop_ready),
+//    .probe1 (uart_loop_valid),
+//    .probe2 (uart_loop_data),
+//    .probe3 (uart_txd_out)
+//);
 
 endmodule
